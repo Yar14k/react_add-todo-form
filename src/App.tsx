@@ -81,7 +81,10 @@ export const App = () => {
             placeholder="Enter todo title"
             value={title}
             onChange={event => {
-              const cleanValue = event.target.value.replace(/[^a-zA-Z0-9 ]/g, '');
+              const cleanValue = event.target.value.replace(
+                /[^a-zA-Z0-9 ]/g,
+                '',
+              );
 
               setTitle(cleanValue);
               setErrors(prevErrors => ({ ...prevErrors, title: false }));

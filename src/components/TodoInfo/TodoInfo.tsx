@@ -1,4 +1,3 @@
-
 import { Todo } from '../../App';
 import { UserInfo } from '../UserInfo';
 
@@ -14,7 +13,7 @@ export const TodoInfo = ({ todo }: TodoInfoProps) => {
     >
       <h2 className="TodoInfo__title">{todo.title}</h2>
 
-      <UserInfo user={todo.user} />
+      {todo.user && <UserInfo user={todo.user} />}
     </article>
   );
 };
