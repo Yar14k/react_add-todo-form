@@ -1,6 +1,12 @@
+
+import { Todo } from '../../App';
 import { UserInfo } from '../UserInfo';
 
-export const TodoInfo = ({ todo }) => {
+interface TodoInfoProps {
+  todo: Todo;
+}
+
+export const TodoInfo = ({ todo }: TodoInfoProps) => {
   return (
     <article
       data-id={todo.id}

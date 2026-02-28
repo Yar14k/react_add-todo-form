@@ -1,6 +1,10 @@
+import { Todo } from '../../App';
 import { TodoInfo } from '../TodoInfo';
 
-export const TodoList = ({ todos }) => {
+interface TodoListProps {
+  todos: Todo[];
+}
+export const TodoList = ({ todos }: TodoListProps) => {
   return (
     <section className="TodoList">
       {todos.map(todo => (
