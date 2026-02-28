@@ -1,9 +1,11 @@
 import { UserInfo } from '../UserInfo';
 
-export const TodoInfo = () => {};
+export const TodoInfo = ({ todo }) => {
+  return (
+    <article data-id={todo.id} className={`TodoInfo ${todo.completed ? 'TodoInfo--completed' : ''}`}>
+      <h2 className="TodoInfo__title">{todo.title}</h2>
 
-<article data-id="2" className="TodoInfo">
-  <h2 className="TodoInfo__title">quis ut nam facilis et officia qui</h2>
-
-  <UserInfo />
-</article>;
+      <UserInfo user={todo.user} />
+    </article>
+  );
+};
