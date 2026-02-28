@@ -2,15 +2,16 @@ import './App.scss';
 import { TodoList } from './components/TodoList';
 import { useState } from 'react';
 
-
 import usersFromServer from './api/users';
 import todosFromServer from './api/todos';
 
 export const App = () => {
-  const [todos, setTodos] = useState(todosFromServer.map(todo => ({
-    ...todo,
-    user: usersFromServer.find(u => u.id === todo.userId),
-  })));
+  const [todos, setTodos] = useState(
+    todosFromServer.map(todo => ({
+      ...todo,
+      user: usersFromServer.find(u => u.id === todo.userId),
+    })),
+  );
 
   const [users] = useState(usersFromServer);
   const [userId, setUserId] = useState(0);
@@ -37,7 +38,7 @@ export const App = () => {
       title: title.trim(),
       userId,
       completed: false,
-      user: selectedUser,
+      user: users.find(u => u.id === userId),
     };
 
     setTodos([...todos, newTodo]);
